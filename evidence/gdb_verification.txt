@@ -1,0 +1,1 @@
+GDB debugging completed. Use-after-free was observed at original/snippet2.c line 10 after free at line 8.

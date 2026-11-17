@@ -1,0 +1,25 @@
+=================================================================
+==23933==ERROR: AddressSanitizer: attempting double-free on 0x502000000010 in thread T0:
+    #0 0x7194ac8fc4d8 in free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:52
+    #1 0x6542f873f23b in main original/snippet3.c:10
+    #2 0x7194ac42a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #3 0x7194ac42a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #4 0x6542f873f104 in _start (/home/aaryan_tandon/Lab2/original/test3+0x1104) (BuildId: d515756f0c6d3d70ecf4fd2b70e558e6155021c6)
+
+0x502000000010 is located 0 bytes inside of 4-byte region [0x502000000010,0x502000000014)
+freed by thread T0 here:
+    #0 0x7194ac8fc4d8 in free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:52
+    #1 0x6542f873f22f in main original/snippet3.c:9
+    #2 0x7194ac42a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #3 0x7194ac42a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #4 0x6542f873f104 in _start (/home/aaryan_tandon/Lab2/original/test3+0x1104) (BuildId: d515756f0c6d3d70ecf4fd2b70e558e6155021c6)
+
+previously allocated by thread T0 here:
+    #0 0x7194ac8fd9c7 in malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:69
+    #1 0x6542f873f1de in main original/snippet3.c:5
+    #2 0x7194ac42a1c9 in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+    #3 0x7194ac42a28a in __libc_start_main_impl ../csu/libc-start.c:360
+    #4 0x6542f873f104 in _start (/home/aaryan_tandon/Lab2/original/test3+0x1104) (BuildId: d515756f0c6d3d70ecf4fd2b70e558e6155021c6)
+
+SUMMARY: AddressSanitizer: double-free ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:52 in free
+==23933==ABORTING
